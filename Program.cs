@@ -1,13 +1,18 @@
 ﻿// Задаем размерность матрицы
 int rows = 5, cols = 5;
+// Создаем матрицу с указанной размерностью
 int[,] spiral = new int[cols, rows];
+// Задаем параметры "хода"
 int[] countStep = { 1, (cols * rows) };
                 // Текущий шаг, Максимальное кол-во шагов
-// X - столбцы (rows), Y - строки (cols)
+// Задаем начальные координаты и направление
 int x = 0, y = 0, route = 0;
+    // X - столбцы (rows), Y - строки (cols), Route - направление
+// Вызываем методы для заполнения спирали
 StepsInSpiral(x, y, route);
+// Смотрим на спираль (:
 ViewDablArray(spiral);
- // Метод для заполнения матрицы по спирали
+// Метод для заполнения матрицы по спирали
 void StepsInSpiral(int x, int y, int route) {
     int step = countStep[0];
     if (step <= countStep[1]) {
@@ -39,12 +44,12 @@ void StepsInSpiral(int x, int y, int route) {
 // Проверка возможности хода
 bool CanStep(int step, int x, int y) {
     bool[] parametrs = {
-        (x < spiral.GetLength(1)),
-        (x >= 0),                 // Проверяем не вышли ли за границы координат X
-        (y < spiral.GetLength(0)),
-        (y >= 0)                 // Проверяем не вышли ли за границы координат y
+        x < spiral.GetLength(1),
+        x >= 0,                 // Проверяем не вышли ли за границы координат X
+        y < spiral.GetLength(0),
+        y >= 0                 // Проверяем не вышли ли за границы координат y
     };
-    return parametrs[0] && parametrs[2] && parametrs[1] && parametrs[3] && (spiral[y, x] == 0);;
+    return parametrs[0] && parametrs[2] && parametrs[1] && parametrs[3] && (spiral[y, x] == 0);
 }                                                                          // Проверяем пустая ли ячейка, в которую мы хотим записать наш шаг
 // Смена направление
 int ChangeRout(int route) {
