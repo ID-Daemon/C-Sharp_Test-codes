@@ -39,10 +39,10 @@ void StepsInSpiral(int x, int y, int route) {
 // Проверка возможности хода
 bool CanStep(int step, int x, int y) {
     bool[] parametrs = {
-    (x < spiral.GetLength(1)),
-    (x >= 0),                 // Проверяем не вышли ли за границы координат X
-    (y < spiral.GetLength(0)),
-    (y >= 0)                 // Проверяем не вышли ли за границы координат y
+        (x < spiral.GetLength(1)),
+        (x >= 0),                 // Проверяем не вышли ли за границы координат X
+        (y < spiral.GetLength(0)),
+        (y >= 0)                 // Проверяем не вышли ли за границы координат y
     };
     return parametrs[0] && parametrs[2] && parametrs[1] && parametrs[3] && (spiral[y, x] == 0);;
 }                                                                          // Проверяем пустая ли ячейка, в которую мы хотим записать наш шаг
@@ -51,7 +51,7 @@ int ChangeRout(int route) {
     route++; route %= 4;
     return route;
 }
-// Корректый показ двумерного массива
+// Корректый показ двумерного массива целочисленных цифр
 void ViewDablArray(int[,] collection) {
     int lengthNumber = (collection.GetLength(0) * collection.GetLength(1)).ToString().Length;
     for (int i = 0; i < collection.GetLength(0); i++)
